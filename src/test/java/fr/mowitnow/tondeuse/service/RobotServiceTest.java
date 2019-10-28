@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RobotServiceTest {
 
-    RobotService rSce = new RobotService();
+    private static RobotService rSce ;
 
     @org.junit.jupiter.api.Test
     void iniatPelouseException() {
@@ -30,9 +30,9 @@ class RobotServiceTest {
         try {
             Pelouse p1 = new Pelouse(5,5);
             Pelouse p2 = rSce.initiatePelouse(st);
-            assertTrue(p1.equals(p2));
+            assertEquals(p1, p2);
         } catch (PelouseException e) {
-
+            e.getMessage();
         }
     }
 
@@ -49,6 +49,6 @@ class RobotServiceTest {
     void commandTondeuseValide() throws TondeuseException {
         Tondeuse t1 = new Tondeuse(new int[] {1,1},"N");
         Tondeuse t2 = rSce.initiateTondeuse("1 1 N");
-        assertTrue(t1.equals(t2));
+        assertEquals(t1,t2);
     }
 }
